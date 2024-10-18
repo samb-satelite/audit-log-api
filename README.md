@@ -25,6 +25,24 @@ Buat file .env di root direktori dan tambahkan konfigurasi berikut:
     DB_PASS=password
     DB_NAME=audit_log
 
+Create Table audit_log
+
+```
+CREATE TABLE `audit_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `module` varchar(255) NOT NULL,
+  `action_type` varchar(50) NOT NULL,
+  `search_key` varchar(255) NOT NULL,
+  `before_data` text NOT NULL,
+  `after_data` text NOT NULL,
+  `action_by` varchar(100) NOT NULL,
+  `action_time` datetime NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5737 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+```
+
 Menjalankan dalam Mode Pengembangan:
 
     go run main.go
